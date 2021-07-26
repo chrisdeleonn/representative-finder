@@ -11,7 +11,7 @@ function RepSearchResults(props) {
             <p>{official?.name}</p>
             <label>
               Phone:&nbsp;
-              <a href={`tel:${official?.phones[0]}`}></a>
+              <a href={`tel:${official?.phones[0]}`}>{official?.phones[0]}</a>
             </label>
             <br />
             {official?.address && (
