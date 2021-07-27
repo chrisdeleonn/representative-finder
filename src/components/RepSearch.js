@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { APIKEY } from '../Config'
 import RepSearchResults from './RepSearchResults'
 
-function RepSearch() {
+function RepSearch({ user }) {
   const [address, setAddress] = useState('') //first use of "stateHook"
   const [offices, setOffices] = useState([])
   const [officials, setOfficials] = useState([])
+
+  console.log('USER ===> ', user)
 
   const searchRep = () => {
     console.log('searching...')
@@ -24,6 +26,7 @@ function RepSearch() {
 
   return (
     <div className='search-container'>
+      <h1>Search for your rep!</h1>
       <input
         name='addressSearch'
         type='text'
@@ -32,7 +35,7 @@ function RepSearch() {
         onChange={(e) => setAddress(e.target.value)} //e is for event
       />
       <div>
-        <button className='search-btn' onClick={() => searchRep()}>
+        <button className='submit-btn' onClick={() => searchRep()}>
           Submit
         </button>
       </div>

@@ -1,28 +1,48 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
 .header {
   margin-left: 24px;
+  padding: 24px;
+  background-color: red;
+  color: white;
 }
 
 .footer {
   text-align: center;
+  background-color: slateblue;
 }
 
 .search-container {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .search-bar {
   width: 750px;
   height: 50px;
   font-size: 36px;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: black;
 }
 
-.search-btn {
+.submit-btn {
   margin: 24px 0;
   color: white;
-  background: black;
+  background: skyblue;
   padding: 12px 24px;
   font-size: 16px;
   border-style: none;
+  border-radius: 4px;
+  letter-spacing: 2px;
 }
 
 .rep-info {
@@ -32,4 +52,50 @@
 .office-title {
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.header-menu {
+  list-style-type: none;
+}
+
+ul {
+  display: flex;
+  justify-content: flex-start;
+  list-style-type: none;
+  align-items: flex-start;
+}
+.menu-item a {
+  color: white;
+  font-size: 26px;
+  margin-right: 24px;
+  text-decoration: none;
+}
+
+.sign-up-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 24px;
+}
+
+.form-label {
+  font-size: 36px;
+  margin: 16px;
+}
+
+.form-input {
+  font-size: 36px;
+  height: 42px;
+  min-width: 250px;
+  margin: 16px;
+}
+
+.header-title {
+  font-weight: bold;
+}
+
+.home-page {
+  font-size: 15px;
+  text-align: center;
+  font-family: 'Comfortaa';
 }
