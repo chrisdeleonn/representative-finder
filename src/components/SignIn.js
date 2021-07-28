@@ -42,7 +42,6 @@ function SignIn({ setUser }) {
         </label>
         <button className='submit-btn' type='submit'>
           {loading ? 'Signing In...' : 'Sign In'}
-          Submit
         </button>
       </form>
     </div>
