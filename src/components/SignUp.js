@@ -4,10 +4,29 @@ import 'firebase/auth'
 import { firebaseConfig } from '../Config'
 
 function SignUp({ setUser }) {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
 
+  const createUser = () => {
+    const formValues = {
+      email: email,
+    }
+    fetch('https://representative-finder-cdl-api.web.app/users', {
+      method: 'POST',
+      body: JSON.stringify(formValues),
+      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log('json-->', json)
+        setLoading(false)
+      })
+      .catch((error) => {
+        alert(error)
+        setLoading(false)
+      })
+  }
   const signUpUser = (e) => {
     e.preventDefault()
     setLoading(true)
@@ -19,12 +38,13 @@ function SignUp({ setUser }) {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((response) => {
-        setLoading(false)
+      
         setUser(response.user)
+        return createUser()
       })
       .catch((err) => {
-        alert(err.message)
         setLoading(false)
+        alert(err.message)
       })
   }
 
@@ -42,7 +62,6 @@ function SignUp({ setUser }) {
           <input name='password' type='password' className='form-input' value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
         <br />
-
         <button className='submit-btn' type='submit'>
           {loading ? 'Signing Up...' : 'Sign Up'}
         </button>

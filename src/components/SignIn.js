@@ -4,13 +4,13 @@ import 'firebase/auth'
 import { firebaseConfig } from '../Config'
 
 function SignIn({ setUser }) {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
 
   const signInUser = (e) => {
     e.preventDefault()
-    console.log('signing in...')
+    setLoading(true)
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig)
     }
@@ -40,6 +40,7 @@ function SignIn({ setUser }) {
           Password:&nbsp;
           <input name='password' type='password' className='form-input' value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
+        <br />
         <button className='submit-btn' type='submit'>
           {loading ? 'Signing In...' : 'Sign In'}
         </button>

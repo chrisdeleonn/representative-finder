@@ -1,10 +1,16 @@
+import React, { useContext } from 'react'
+import { UserContext } from '../App'
+
 function RepSearchResults(props) {
   const { offices, officials } = props
+  const { userProfile } = useContext(UserContext)
 
   return (
     <div>
+      <h2>here are your results{userProfile?.firstname}</h2>
       {offices.map((office) => {
         const official = officials[office.officialIndices[0]]
+
         return (
           <div className='rep-info'>
             <div className='office-title'>{office.name}</div>
@@ -39,7 +45,7 @@ function RepSearchResults(props) {
               <>
                 <label>
                   Website:&nbsp;
-                  <a href={official?.urls[0]} target='_blank'>
+                  <a href={official?.urls[0]} target='_blank' rel='noreferrer'>
                     {official?.urls[0]}
                   </a>
                 </label>
