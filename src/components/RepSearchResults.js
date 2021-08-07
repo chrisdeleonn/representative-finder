@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 import { UserContext } from '../App'
 
-function RepSearchResults(props) {
+const RepSearchResults = (props) => {
   const { offices, officials } = props
   const { userProfile } = useContext(UserContext)
 
   return (
     <div>
       <h2>here are your results{userProfile?.firstname}</h2>
-      {offices.map((office) => {
+      {offices?.map((office) => {
         const official = officials[office.officialIndices[0]]
 
         return (

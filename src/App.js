@@ -17,7 +17,7 @@ if (!firebase.apps.length) {
 
 export const UserContext = createContext(undefined)
 
-function App() {
+const App = () => {
   const [user, setUser] = useState(undefined)
   const [userProfile, setUserProfile] = useState(undefined)
 
@@ -43,8 +43,6 @@ function App() {
     }
   }, [user])
 
-  
-
   return (
     <Router>
       <div>
@@ -55,15 +53,17 @@ function App() {
               <Route path='/signin'>
                 <SignIn setUser={setUser} />
               </Route>
+
               <Route path='/signup'>
                 <SignUp setUser={setUser} />
               </Route>
-              <Route path='/search'>
-                <RepSearch />
-              </Route>
+
+              <Route path='/search'>{user ? <RepSearch user={user} /> : <SignIn setUser={setUser} />}</Route>
+
               <Route path='/user-profile'>
                 <UserProfile user={user} userProfile={userProfile} setUserProfile={setUserProfile} />
               </Route>
+
               <Route path='/'>
                 <Home />
               </Route>

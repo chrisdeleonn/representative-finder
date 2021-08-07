@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
-function Header({ user, setUser, userProfile, setUserProfile }) {
+const Header = ({ user, setUser, userProfile, setUserProfile }) => {
   const logOut = (e) => {
     e.preventDefault()
-    firebase.auth()
+    firebase
+      .auth()
       .signOut()
       .then(() => {
         localStorage.removeItem('user')

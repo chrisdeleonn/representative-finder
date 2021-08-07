@@ -3,7 +3,7 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import { firebaseConfig } from '../Config'
 
-function SignIn({ setUser }) {
+const SignIn = ({ setUser }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)

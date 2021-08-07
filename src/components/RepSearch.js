@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { APIKEY } from '../Config'
 import RepSearchResults from './RepSearchResults'
 
-function RepSearch({ user }) {
+const RepSearch = ({ user }) => {
   const [address, setAddress] = useState('') //first use of "stateHook"
   const [offices, setOffices] = useState([])
   const [officials, setOfficials] = useState([])

@@ -3,7 +3,7 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import { firebaseConfig } from '../Config'
 
-function SignUp({ setUser }) {
+const SignUp = ({ setUser }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -15,7 +15,7 @@ function SignUp({ setUser }) {
     fetch('https://representative-finder-cdl-api.web.app/users', {
       method: 'POST',
       body: JSON.stringify(formValues),
-      headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      headers: { 'Content-type': 'application/json' },
     })
       .then((response) => response.json())
       .then((json) => {
@@ -38,7 +38,6 @@ function SignUp({ setUser }) {
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((response) => {
-      
         setUser(response.user)
         return createUser()
       })
@@ -63,7 +62,7 @@ function SignUp({ setUser }) {
         </label>
         <br />
         <button className='submit-btn' type='submit'>
-          {loading ? 'Signing Up...' : 'Sign Up'}
+          {loading ? 'Signing Up...' : 'Submit'}
         </button>
       </form>
     </div>

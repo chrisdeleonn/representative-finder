@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-function UserProfile({ user, userProfile, setUserProfile }) {
+const UserProfile = ({ user, userProfile, setUserProfile }) => {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [address, setAddress] = useState('')
