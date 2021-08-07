@@ -103,3 +103,14 @@ ul {
   text-align: center;
   font-family: 'Comfortaa';
 }
+
+.home-text {
+  font-size: 15px;
+  text-align: left;
+  font-family: 'Comfortaa';
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 24px;
+  line-height: 2;
+}
