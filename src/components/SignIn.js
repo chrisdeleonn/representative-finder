@@ -42,7 +42,7 @@ const SignIn = ({ setUser }) => {
         </label>
         <br />
         <button className='submit-btn' type='submit'>
-          {loading ? 'Signing In...' : 'Sign In'}
+          {loading ? 'Signing In...' : 'Submit'}
         </button>
       </form>
     </div>

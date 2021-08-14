@@ -7,19 +7,20 @@ const RepSearchResults = (props) => {
 
   return (
     <div>
-      <h2>here are your results{userProfile?.firstname}</h2>
-      {offices?.map((office) => {
+      <h2>{userProfile?.firstname}</h2>
+      {offices.map((office) => {
         const official = officials[office.officialIndices[0]]
 
         return (
           <div className='rep-info'>
             <div className='office-title'>{office.name}</div>
             <p>{official?.name}</p>
-            <label>
+              <label>     
               Phone:&nbsp;
               <a href={`tel:${official?.phones[0]}`}>{official?.phones[0]}</a>
-            </label>
-            <br />
+                </label>
+              <br />
+
             {official?.address && (
               <>
                 <label>
